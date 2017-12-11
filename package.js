@@ -1,15 +1,15 @@
 Package.describe({
     summary: "Make signin and signout their own pages with routes.",
-    version: '0.9.4',
+    version: '0.9.4_1',
     name: "riffyn:accounts-entry",
-    git: 'https://github.com/pfafman/meteor-accounts-entry'
+    git: 'https://github.com/RiffynInc/meteor-accounts-entry.git'
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom("1.2");
+  api.versionsFrom("1.4.4.5");
 
   // Not in master
-  api.use(['joshowens:simple-form@0.2.0'], ['client', 'server']);
+  api.use(['joshowens:simple-form'], ['client', 'server']);
 
   // CLIENT
   api.use([
@@ -83,7 +83,7 @@ Package.onUse(function(api) {
   api.imply('accounts-password', ['client', 'server']);
   api.export('AccountsEntry', ['client', 'server']);
 
-  api.use(['iron:router@1.0.0', 'mrt:accounts-t9n'], ['client', 'server']);
+  api.use(['iron:router', 'mrt:accounts-t9n'], ['client', 'server']);
 
   api.addFiles(['shared/router.coffee'], ['client', 'server']);
 
@@ -100,7 +100,7 @@ Package.onTest(function (api) {
     'coffeescript',
     'iron:router',
     'mrt:accounts-t9n',
-    'joshowens:simple-form@0.2.0'
+    'joshowens:simple-form'
     ]);
   api.use('riffyn:accounts-entry');
 
